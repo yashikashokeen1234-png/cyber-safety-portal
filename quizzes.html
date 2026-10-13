@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Safety Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Cyber Safety Portal</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="topics.html">Topics</a>
+            <a href="resources.html">Resources</a>
+            <a href="quizzes.html">Quizzes</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Test Your Cyber Safety Knowledge</h2>
+        <p>Answer the question below to practise identifying online threats.</p>
+
+        <section>
+            <h3>Question 1: What is phishing?</h3>
+
+            <form id="quiz-form">
+                <label>
+                    <input type="radio" name="answer" value="a">
+                    A. A type of online scam used to steal information
+                </label>
+                <br>
+
+                <label>
+                    <input type="radio" name="answer" value="b">
+                    B. A way to make your internet faster
+                </label>
+                <br>
+
+                <label>
+                    <input type="radio" name="answer" value="c">
+                    C. A computer game
+                </label>
+                <br><br>
+
+                <button type="submit">Check Answer</button>
+            </form>
+
+            <p id="result" aria-live="polite"></p>
+        </section>
+
+        <p><a href="topics.html">Review Cybersecurity Topics</a></p>
+    </main>
+
+    <footer>
+        <p>Cyber Safety Awareness Project</p>
+    </footer>
+
+    <script>
+        document.getElementById("quiz-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const answer = document.querySelector('input[name="answer"]:checked');
+            const result = document.getElementById("result");
+
+            if (!answer) {
+                result.textContent = "Please select an answer first.";
+            } else if (answer.value === "a") {
+                result.textContent = "Correct! Phishing attempts to trick people into revealing information.";
+            } else {
+                result.textContent = "Not quite. Try again!";
+            }
+        });
+    </script>
+
+</body>
+</html>
